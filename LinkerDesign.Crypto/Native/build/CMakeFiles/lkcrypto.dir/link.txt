@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC -shared -Wl,-soname,liblkcrypto.so -o liblkcrypto.so CMakeFiles/lkcrypto.dir/aes.c.o CMakeFiles/lkcrypto.dir/md.c.o CMakeFiles/lkcrypto.dir/stream.c.o CMakeFiles/lkcrypto.dir/crypto_base.c.o  -lcrypto -lm 

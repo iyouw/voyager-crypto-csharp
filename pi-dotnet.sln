@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConTest", "ConTest\ConTest.csproj", "{1D3DD93B-695F-4AE7-B196-855F60C4A396}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkerDesign.Crypto", "LinkerDesign.Crypto\LinkerDesign.Crypto.csproj", "{EAC39BB9-0B3E-4E8F-9A5F-598FD1F2FAA4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1D3DD93B-695F-4AE7-B196-855F60C4A396}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D3DD93B-695F-4AE7-B196-855F60C4A396}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D3DD93B-695F-4AE7-B196-855F60C4A396}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D3DD93B-695F-4AE7-B196-855F60C4A396}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAC39BB9-0B3E-4E8F-9A5F-598FD1F2FAA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAC39BB9-0B3E-4E8F-9A5F-598FD1F2FAA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAC39BB9-0B3E-4E8F-9A5F-598FD1F2FAA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAC39BB9-0B3E-4E8F-9A5F-598FD1F2FAA4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
