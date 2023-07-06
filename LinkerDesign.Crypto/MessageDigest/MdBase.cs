@@ -1,7 +1,45 @@
 namespace LinkerDesign.Crypto;
 
-public class MdBase: CryptoBase
+public abstract class MdBase: CryptoBase
 {
+  public abstract MdAlgorithm GetAlgorithm();
+
+  public byte[] Digest(string message, ExportType msgType = ExportType.Base64, int bufferSize = CryptoBase.DefaultBufferSize)
+  {
+    var algorithm = GetAlgorithm();
+    return DigestCore(message, algorithm, msgType, bufferSize);
+  }
+
+  public string Digest(string message,  ExportType msgType = ExportType.Base64, ExportType exportType = ExportType.Base64, int bufferSize = CryptoBase.DefaultBufferSize)
+  {
+    var algorithm = GetAlgorithm();
+    return DigestCore(message, algorithm, msgType, exportType, bufferSize);
+  }
+
+  public byte[] Digest(byte[] bytes, int bufferSize = CryptoBase.DefaultBufferSize)
+  {
+    var algorithm = GetAlgorithm();
+    return DigestCore(bytes, algorithm, bufferSize);
+  }
+
+  public string Digest(byte[] bytes, ExportType exportType = ExportType.Base64, int bufferSize = CryptoBase.DefaultBufferSize)
+  {
+    var algorithm = GetAlgorithm();
+    return DigestCore(bytes, algorithm, exportType, bufferSize);
+  }
+
+  public byte[] Digest(Stream stream, int bufferSize = CryptoBase.DefaultBufferSize)
+  {
+    var algorithm = GetAlgorithm();
+    return DigestCore(stream, algorithm, bufferSize);
+  }
+
+  public string Digest(Stream stream, ExportType exportType = ExportType.Base64, int bufferSize = CryptoBase.DefaultBufferSize)
+  {
+    var algorithm = GetAlgorithm();
+    return DigestCore(stream, algorithm, exportType, bufferSize);
+  }
+
   protected byte[] DigestCore(IReader reader, MdAlgorithm algorithm, int bufferSize)
   {
     byte[]? res = null;
