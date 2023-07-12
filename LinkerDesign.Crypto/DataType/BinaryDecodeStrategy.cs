@@ -2,7 +2,7 @@ namespace LinkerDesign.Crypto;
 
 public class BinaryDecodeStrategy: IBinaryDecoder
 {
-  public readonly IBinaryDecoder _decoder;
+  private readonly IBinaryDecoder _decoder;
 
   public BinaryDecodeStrategy(EncodingType exportType)
   {

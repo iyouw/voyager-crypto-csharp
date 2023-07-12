@@ -4,7 +4,7 @@
 
 MdContext *md_context_create(
   enum MD_ALGORITHM algorithm, 
-  size_t buf_len)
+  int buf_len)
 {
   MdContext *context = (MdContext *)malloc(sizeof(MdContext));
   

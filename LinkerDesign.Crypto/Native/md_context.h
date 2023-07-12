@@ -13,7 +13,7 @@ typedef struct MdContext {
 } MdContext;
 
 
-MdContext *md_context_create(enum MD_ALGORITHM algorithm, size_t buf_len);
+MdContext *md_context_create(enum MD_ALGORITHM algorithm, int buf_len);
 
 int md_context_update(MdContext *context, ReadCallback readCallback);
 

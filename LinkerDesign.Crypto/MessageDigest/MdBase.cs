@@ -2,19 +2,7 @@ namespace LinkerDesign.Crypto;
 
 public abstract class MdBase: CryptoBase
 {
-  public abstract MdAlgorithm GetAlgorithm();
-
-  public byte[] Digest(string message, EncodingType msgType = EncodingType.Base64, int bufferSize = CryptoBase.DefaultBufferSize)
-  {
-    var algorithm = GetAlgorithm();
-    return DigestCore(message, algorithm, msgType, bufferSize);
-  }
-
-  public string Digest(string message,  EncodingType msgType = EncodingType.Base64, EncodingType EncodingType = EncodingType.Base64, int bufferSize = CryptoBase.DefaultBufferSize)
-  {
-    var algorithm = GetAlgorithm();
-    return DigestCore(message, algorithm, msgType, EncodingType, bufferSize);
-  }
+  protected abstract MdAlgorithm GetAlgorithm();
 
   public byte[] Digest(byte[] bytes, int bufferSize = CryptoBase.DefaultBufferSize)
   {
@@ -22,22 +10,35 @@ public abstract class MdBase: CryptoBase
     return DigestCore(bytes, algorithm, bufferSize);
   }
 
-  public string Digest(byte[] bytes, EncodingType EncodingType = EncodingType.Base64, int bufferSize = CryptoBase.DefaultBufferSize)
+  public string Digest(byte[] bytes, EncodingType exportType = EncodingType.Base64, int bufferSize = CryptoBase.DefaultBufferSize)
   {
     var algorithm = GetAlgorithm();
-    return DigestCore(bytes, algorithm, EncodingType, bufferSize);
+    return DigestCore(bytes, algorithm, exportType, bufferSize);
   }
 
+  public byte[] Digest(string message, EncodingType msgType = EncodingType.Base64, int bufferSize = CryptoBase.DefaultBufferSize)
+  {
+    var algorithm = GetAlgorithm();
+    return DigestCore(message, algorithm, msgType, bufferSize);
+  }
+
+  public string Digest(string message,  EncodingType msgType = EncodingType.Base64, EncodingType exportType = EncodingType.Base64, int bufferSize = CryptoBase.DefaultBufferSize)
+  {
+    var algorithm = GetAlgorithm();
+    return DigestCore(message, algorithm, msgType, exportType, bufferSize);
+  }
+
+  
   public byte[] Digest(Stream stream, int bufferSize = CryptoBase.DefaultBufferSize)
   {
     var algorithm = GetAlgorithm();
     return DigestCore(stream, algorithm, bufferSize);
   }
 
-  public string Digest(Stream stream, EncodingType EncodingType = EncodingType.Base64, int bufferSize = CryptoBase.DefaultBufferSize)
+  public string Digest(Stream stream, EncodingType exportType = EncodingType.Base64, int bufferSize = CryptoBase.DefaultBufferSize)
   {
     var algorithm = GetAlgorithm();
-    return DigestCore(stream, algorithm, EncodingType, bufferSize);
+    return DigestCore(stream, algorithm, exportType, bufferSize);
   }
 
   protected byte[] DigestCore(IReader reader, MdAlgorithm algorithm, int bufferSize)
@@ -67,10 +68,10 @@ public abstract class MdBase: CryptoBase
     return DigestCore(reader, algorithm, bufferSize);
   }
 
-  protected string DigestCore(byte[] msg, MdAlgorithm algorithm, EncodingType EncodingType , int bufferSize)
+  protected string DigestCore(byte[] msg, MdAlgorithm algorithm, EncodingType exportType , int bufferSize)
   {
     var bytes = DigestCore(msg, algorithm, bufferSize);
-    var strategy = new BinaryEncodeStrategy(EncodingType);
+    var strategy = new BinaryEncodeStrategy(exportType);
     return strategy.Encode(bytes);
   }
 
@@ -80,10 +81,10 @@ public abstract class MdBase: CryptoBase
     return DigestCore(reader, algorithm, bufferSize);
   }
 
-  protected string DigestCore(string msg, MdAlgorithm algorithm, EncodingType msgType, EncodingType EncodingType, int bufferSize)
+  protected string DigestCore(string msg, MdAlgorithm algorithm, EncodingType msgType, EncodingType exportType, int bufferSize)
   {
     var bytes = DigestCore(msg, algorithm, msgType, bufferSize);
-    var strategy = new BinaryEncodeStrategy(EncodingType);
+    var strategy = new BinaryEncodeStrategy(exportType);
     return strategy.Encode(bytes);
   }
 
@@ -93,10 +94,10 @@ public abstract class MdBase: CryptoBase
     return DigestCore(reader, algorithm, bufferSize);
   }
 
-  protected string DigestCore(Stream stream, MdAlgorithm algorithm, EncodingType EncodingType, int bufferSize = CryptoBase.DefaultBufferSize)
+  protected string DigestCore(Stream stream, MdAlgorithm algorithm, EncodingType exportType, int bufferSize = CryptoBase.DefaultBufferSize)
   {
     var bytes = DigestCore(stream, algorithm, bufferSize);
-    var strategy = new BinaryEncodeStrategy(EncodingType);
+    var strategy = new BinaryEncodeStrategy(exportType);
     return strategy.Encode(bytes);
   }
 }

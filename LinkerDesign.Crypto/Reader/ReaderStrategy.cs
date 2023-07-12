@@ -2,7 +2,7 @@ namespace LinkerDesign.Crypto;
 
 public class ReaderStrategy: IReader
 {
-  private IReader _reader;
+  private readonly IReader _reader;
 
   public ReaderStrategy(string text, EncodingType EncodingType)
   {
