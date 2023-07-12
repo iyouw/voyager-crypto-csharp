@@ -39,14 +39,14 @@ public class CryptoBase
     Native.FreeAesKey(key);
   }
 
-  protected int GenerateAesIVNative(int length, WriteCallback writeCallback)
+  protected int GenerateAesIVNative( WriteCallback writeCallback)
   {
-    return Native.GenerateAesIV(length, writeCallback);
+    return Native.GenerateAesIV(writeCallback);
   }
 
-  protected IntPtr ImportAesIVNative(int length)
+  protected IntPtr ImportAesIVNative()
   {
-    return Native.ImportAesIV(length);
+    return Native.ImportAesIV();
   }
 
   protected void FreeAesIVNative(IntPtr iv)
@@ -54,14 +54,14 @@ public class CryptoBase
     Native.FreeAesIV(iv);
   }
 
-  protected int EncryptNative(int bufferLength, IntPtr key, IntPtr iv, int aesMode, int blockSize, ReadCallback readCallback, WriteCallback writeCallback)
+  protected int AesEncryptNative(int bufferLength, IntPtr key, IntPtr iv, int aesMode, int blockSize, ReadCallback readCallback, WriteCallback writeCallback)
   {
-    return Native.Encrypt(bufferLength, key, iv, aesMode, blockSize, readCallback, writeCallback);
+    return Native.AesEncrypt(bufferLength, key, iv, aesMode, blockSize, readCallback, writeCallback);
   }
 
-  protected int DecryptNative(int bufferLength, IntPtr key, IntPtr iv, int aesMode, int blockSize, ReadCallback readCallback, WriteCallback writeCallback)
+  protected int AesDecryptNative(int bufferLength, IntPtr key, IntPtr iv, int aesMode, int blockSize, ReadCallback readCallback, WriteCallback writeCallback)
   {
-    return Native.Decrypt(bufferLength, key, iv, aesMode, blockSize, readCallback, writeCallback);
+    return Native.AesDecrypt(bufferLength, key, iv, aesMode, blockSize, readCallback, writeCallback);
   }
 }
 

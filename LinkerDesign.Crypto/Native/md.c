@@ -2,38 +2,6 @@
 
 #include "crypto_base.h"
 
-static const EVP_MD *get_algorithm(enum MD_ALGORITHM algorithm)
-{
-  const EVP_MD *res = NULL;
-  switch (algorithm)
-  {
-    case SHA1:
-      res = EVP_sha1();
-      break;
-    case SHA256:
-      res = EVP_sha256();
-      break;
-    case SHA384:
-      res = EVP_sha384();
-    case SHA512:
-      res = EVP_sha512();
-      break;
-    case MD5:
-      res = EVP_md5();
-      break;
-    case MD5_SHA1:
-      res = EVP_md5_sha1();
-      break;
-  }
-  if (NULL == res)
-  {
-    fprintf(stderr, "Could not find the algorihtm");
-    exit(EXIT_FAILURE);
-  }
-  return res;
-}
-
-
 int digest( 
   size_t buf_len,
   enum MD_ALGORITHM algorithm,
@@ -46,6 +14,7 @@ int digest(
   unsigned char *message;
   unsigned char *digest;
   unsigned int digest_len;
+  int byte_len;
 
   if (NULL == (message = malloc(buf_len)))
     goto err;
@@ -53,13 +22,11 @@ int digest(
   if (!(ctx = EVP_MD_CTX_new()))
     goto err;
   
- if (NULL == (type = get_algorithm(algorithm)))
+  if (NULL == (type = get_md_algorithm(algorithm)))
     goto err;
 
   if (1 != EVP_DigestInit_ex(ctx, type, NULL))
     goto err;
-
-  int byte_len;
 
   while ((byte_len = (*readCallback)(message, buf_len)) > 0) {
     if (1 != EVP_DigestUpdate(ctx, message, byte_len))

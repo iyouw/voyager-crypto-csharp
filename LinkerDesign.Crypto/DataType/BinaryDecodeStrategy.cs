@@ -4,17 +4,17 @@ public class BinaryDecodeStrategy: IBinaryDecoder
 {
   public readonly IBinaryDecoder _decoder;
 
-  public BinaryDecodeStrategy(ExportType exportType)
+  public BinaryDecodeStrategy(EncodingType exportType)
   {
     switch(exportType)
     {
-      case ExportType.Base64:
+      case EncodingType.Base64:
         _decoder = new Base64();
         break;
-      case ExportType.Hex:
+      case EncodingType.Hex:
         _decoder = new Hex();
         break;
-      case ExportType.UTF8:
+      case EncodingType.UTF8:
         _decoder = new Utf8();
         break;
       default:

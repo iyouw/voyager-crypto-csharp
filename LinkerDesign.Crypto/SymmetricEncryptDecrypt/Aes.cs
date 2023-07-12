@@ -6,8 +6,8 @@ public class Aes: AesBase
     string key, 
     string iv, 
     byte[] data, 
-    ExportType keyType = ExportType.Base64, 
-    ExportType ivType = ExportType.Base64, 
+    EncodingType keyType = EncodingType.Base64, 
+    EncodingType ivType = EncodingType.Base64, 
     int bufferSize = CryptoBase.DefaultBufferSize)
   {
     var mode = AesMode.CBC;
@@ -18,8 +18,8 @@ public class Aes: AesBase
     string key,
     string iv,
     byte[] data,
-    ExportType keyType = ExportType.Base64,
-    ExportType ivType = ExportType.Base64,
+    EncodingType keyType = EncodingType.Base64,
+    EncodingType ivType = EncodingType.Base64,
     int bufferSize = CryptoBase.DefaultBufferSize)
   {
     var mode = AesMode.CBC;
@@ -30,58 +30,58 @@ public class Aes: AesBase
     string key,
     string iv,
     string data,
-    ExportType keyType = ExportType.Base64,
-    ExportType ivType = ExportType.Base64,
+    EncodingType keyType = EncodingType.Base64,
+    EncodingType ivType = EncodingType.Base64,
     int bufferSize = CryptoBase.DefaultBufferSize)
   {
     var mode = AesMode.CBC;
-    return EncryptCore(data, ExportType.UTF8, key, keyType, iv, ivType, mode, bufferSize);
+    return EncryptCore(data, EncodingType.UTF8, key, keyType, iv, ivType, mode, bufferSize);
   }
 
   public string EncryptCBCWithUTF8(
     string key,
     string iv,
     string data,
-    ExportType exportType = ExportType.Base64,
-    ExportType keyType = ExportType.Base64,
-    ExportType ivType = ExportType.Base64,
+    EncodingType EncodingType = EncodingType.Base64,
+    EncodingType keyType = EncodingType.Base64,
+    EncodingType ivType = EncodingType.Base64,
     int bufferSize = CryptoBase.DefaultBufferSize)
   {
     var mode = AesMode.CBC;
-    return EncryptCore(data, ExportType.UTF8, key, keyType, iv, ivType, mode, exportType, bufferSize);
+    return EncryptCore(data, EncodingType.UTF8, key, keyType, iv, ivType, mode, EncodingType, bufferSize);
   }
 
   public string DecryptCBCWithUTF8(
     string key,
     string iv,
     byte[] data,
-    ExportType keyType = ExportType.Base64,
-    ExportType ivType = ExportType.Base64,
+    EncodingType keyType = EncodingType.Base64,
+    EncodingType ivType = EncodingType.Base64,
     int bufferSize = CryptoBase.DefaultBufferSize)
   {
     var mode = AesMode.CBC;
-    return DecryptCore(data, key, keyType, iv, ivType, mode, ExportType.UTF8, bufferSize);
+    return DecryptCore(data, key, keyType, iv, ivType, mode, EncodingType.UTF8, bufferSize);
   }
 
   public string DecryptCBCWithUTF8(
     string key,
     string iv,
     string data,
-    ExportType dataType = ExportType.Base64,
-    ExportType keyType = ExportType.Base64,
-    ExportType ivType = ExportType.Base64,
+    EncodingType dataType = EncodingType.Base64,
+    EncodingType keyType = EncodingType.Base64,
+    EncodingType ivType = EncodingType.Base64,
     int bufferSize = CryptoBase.DefaultBufferSize)
   {
     var mode = AesMode.CBC;
-    return DecryptCore(data, dataType, key, keyType, iv, ivType, mode, ExportType.UTF8, bufferSize);
+    return DecryptCore(data, dataType, key, keyType, iv, ivType, mode, EncodingType.UTF8, bufferSize);
   }
 
   public byte[] EncryptCTR(
     string key, 
     string iv, 
     byte[] data, 
-    ExportType keyType = ExportType.Base64, 
-    ExportType ivType = ExportType.Base64, 
+    EncodingType keyType = EncodingType.Base64, 
+    EncodingType ivType = EncodingType.Base64, 
     int bufferSize = CryptoBase.DefaultBufferSize)
   {
     var mode = AesMode.CTR;
@@ -92,8 +92,8 @@ public class Aes: AesBase
     string key,
     string iv,
     byte[] data,
-    ExportType keyType = ExportType.Base64,
-    ExportType ivType = ExportType.Base64,
+    EncodingType keyType = EncodingType.Base64,
+    EncodingType ivType = EncodingType.Base64,
     int bufferSize = CryptoBase.DefaultBufferSize)
   {
     var mode = AesMode.CTR;
@@ -104,50 +104,50 @@ public class Aes: AesBase
     string key,
     string iv,
     string data,
-    ExportType keyType = ExportType.Base64,
-    ExportType ivType = ExportType.Base64,
+    EncodingType keyType = EncodingType.Base64,
+    EncodingType ivType = EncodingType.Base64,
     int bufferSize = CryptoBase.DefaultBufferSize)
   {
     var mode = AesMode.CTR;
-    return EncryptCore(data, ExportType.UTF8, key, keyType, iv, ivType, mode, bufferSize);
+    return EncryptCore(data, EncodingType.UTF8, key, keyType, iv, ivType, mode, bufferSize);
   }
 
   public string EncryptCTRWithUTF8(
     string key,
     string iv,
     string data,
-    ExportType exportType = ExportType.Base64,
-    ExportType keyType = ExportType.Base64,
-    ExportType ivType = ExportType.Base64,
+    EncodingType EncodingType = EncodingType.Base64,
+    EncodingType keyType = EncodingType.Base64,
+    EncodingType ivType = EncodingType.Base64,
     int bufferSize = CryptoBase.DefaultBufferSize)
   {
     var mode = AesMode.CTR;
-    return EncryptCore(data, ExportType.UTF8, key, keyType, iv, ivType, mode, exportType, bufferSize);
+    return EncryptCore(data, EncodingType.UTF8, key, keyType, iv, ivType, mode, EncodingType, bufferSize);
   }
 
   public string DecryptCTRWithUTF8(
     string key,
     string iv,
     byte[] data,
-    ExportType keyType = ExportType.Base64,
-    ExportType ivType = ExportType.Base64,
+    EncodingType keyType = EncodingType.Base64,
+    EncodingType ivType = EncodingType.Base64,
     int bufferSize = CryptoBase.DefaultBufferSize)
   {
     var mode = AesMode.CTR;
-    return DecryptCore(data, key, keyType, iv, ivType, mode, ExportType.UTF8, bufferSize);
+    return DecryptCore(data, key, keyType, iv, ivType, mode, EncodingType.UTF8, bufferSize);
   }
 
   public string DecryptCTRWithUTF8(
     string key,
     string iv,
     string data,
-    ExportType dataType = ExportType.Base64,
-    ExportType keyType = ExportType.Base64,
-    ExportType ivType = ExportType.Base64,
+    EncodingType dataType = EncodingType.Base64,
+    EncodingType keyType = EncodingType.Base64,
+    EncodingType ivType = EncodingType.Base64,
     int bufferSize = CryptoBase.DefaultBufferSize)
   {
     var mode = AesMode.CTR;
-    return DecryptCore(data, dataType, key, keyType, iv, ivType, mode, ExportType.UTF8, bufferSize);
+    return DecryptCore(data, dataType, key, keyType, iv, ivType, mode, EncodingType.UTF8, bufferSize);
   }
 
   public byte[] GenerateKey(AesKeySize size = AesKeySize.KS256)
@@ -155,9 +155,9 @@ public class Aes: AesBase
     return GenerateAesKeyCore(size);
   }
 
-  public string GenerateKey(ExportType exportType = ExportType.Base64, AesKeySize size = AesKeySize.KS256)
+  public string GenerateKey(EncodingType EncodingType = EncodingType.Base64, AesKeySize size = AesKeySize.KS256)
   {
-    return GenerateAesKeyCore(size, exportType);
+    return GenerateAesKeyCore(size, EncodingType);
   }
 
   public byte[] GenerateIV()
@@ -165,8 +165,8 @@ public class Aes: AesBase
     return GenerateAesIVCore();
   }
 
-  public string GenerateIV(ExportType exportType = ExportType.Base64)
+  public string GenerateIV(EncodingType EncodingType = EncodingType.Base64)
   {
-    return GenerateAesIVCore(exportType);
+    return GenerateAesIVCore(EncodingType);
   }
 }

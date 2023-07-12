@@ -1,7 +1,4 @@
-cmake_minimum_required(VERSION 3.20)
-project(native LANGUAGES C CXX)
-
-add_library(kcrypto SHARED aes.c md.c stream.c crypto_base.c)
+add_library(kcrypto SHARED crypto_base.c aes_context.c md_context.c aes.c md.c)
 
 # include directories
 set(openssl_include_dir  "C:/Program Files/OpenSSL/include")

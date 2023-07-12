@@ -2,8 +2,10 @@
 
 #define LINKER_DESIGN_CRYPTO_BASE_H
 
-typedef void (*WriteCallback)(unsigned char *ptr, int len);
+#include <openssl/evp.h>
+
 typedef int (*ReadCallback)(unsigned char *ptr, int len);
+typedef void (*WriteCallback)(unsigned char *ptr, int len);
 
 enum AES_MODE {
   CTR = 1,
@@ -18,6 +20,12 @@ enum MD_ALGORITHM {
   MD5,
   MD5_SHA1,
 };
+
+const EVP_CIPHER *get_aes_cipher(enum AES_MODE mode, int key_length);
+
+int resolve_aes_read_block_size(int block_size, int buf_len);
+
+const EVP_MD *get_md_algorithm(enum MD_ALGORITHM algorithm);
 
 void handleErrors(void);
 #endif

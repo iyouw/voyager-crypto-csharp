@@ -21,19 +21,19 @@ class Native
   public static extern void FreeAesKey(IntPtr key);
 
   [DllImport("kcrypto", EntryPoint="generate_aes_iv")]
-  public static extern int GenerateAesIV(int length, WriteCallback writeCallback);
+  public static extern int GenerateAesIV(WriteCallback writeCallback);
 
   [DllImport("kcrypto", EntryPoint="import_aes_iv")]
-  public static extern IntPtr ImportAesIV(int length);
+  public static extern IntPtr ImportAesIV();
 
   [DllImport("kcrypto", EntryPoint="free_aes_iv")]
   public static extern void FreeAesIV(IntPtr iv);
 
-  [DllImport("kcrypto", EntryPoint="encrypt")]
-  public static extern int Encrypt(int bufferLength, IntPtr key, IntPtr iv, int aesMode, int blockSize, ReadCallback readCallback, WriteCallback writeCallback);
+  [DllImport("kcrypto", EntryPoint="aes_encrypt")]
+  public static extern int AesEncrypt(int bufferLength, IntPtr key, IntPtr iv, int aesMode, int blockSize, ReadCallback readCallback, WriteCallback writeCallback);
 
-  [DllImport("kcrypto", EntryPoint="decrypt")]
-  public static extern int Decrypt(int bufferLength, IntPtr key, IntPtr iv, int aesMode, int blockSize, ReadCallback readCallback, WriteCallback writeCallback);
+  [DllImport("kcrypto", EntryPoint="aes_decrypt")]
+  public static extern int AesDecrypt(int bufferLength, IntPtr key, IntPtr iv, int aesMode, int blockSize, ReadCallback readCallback, WriteCallback writeCallback);
 }
 
 

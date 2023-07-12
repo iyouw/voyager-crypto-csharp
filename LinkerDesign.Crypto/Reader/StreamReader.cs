@@ -9,8 +9,6 @@ public class StreamReader: IReader
     Stream = stream;
   }
 
-  public long Length => Stream.Length;
-
   public byte[]? read(int length)
   {
     var size = (int)Math.Min(Stream.Length - Stream.Position, length);

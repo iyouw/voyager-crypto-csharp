@@ -4,19 +4,17 @@ public class ReaderStrategy: IReader
 {
   private IReader _reader;
 
-  public long Length => _reader.Length;
-
-  public ReaderStrategy(string text, ExportType exportType)
+  public ReaderStrategy(string text, EncodingType EncodingType)
   {
-    switch(exportType)
+    switch(EncodingType)
     {
-      case ExportType.Base64:
+      case EncodingType.Base64:
         _reader = new Base64Reader(text);
         break;
-      case ExportType.Hex:
+      case EncodingType.Hex:
         _reader = new HexReader(text);
         break;
-      case ExportType.UTF8:
+      case EncodingType.UTF8:
         _reader = new Utf8Reader(text);
         break;
       default:

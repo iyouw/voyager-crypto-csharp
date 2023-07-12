@@ -1,6 +1,6 @@
 namespace LinkerDesign.Crypto;
 
-public enum ExportType
+public enum EncodingType
 {
   Base64 = 1,
   Hex = 2,

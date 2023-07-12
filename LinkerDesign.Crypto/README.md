@@ -1,6 +1,15 @@
 # LinkerDesign.Crypto
 
-a lightweight crypto library for dotnet, which can run on linux-x64 and windows-x64 platform.
+A lightweight crypto library which could run on `browser`, `node`, `java(jvm)`, `dotnet` platform base on `openssl libcrypto library`.
+
+* `browser`, `node` package
+	+ we use `webassembly` technology to port and encapsulate the `native c library`(`openssl libcrypto`). you could access the package [here](https://www.npmjs.com/package/@linker-design/crypto)
+
+* `dotnet` package
+	+ we use `p/invoke` technology to port and encapsulate the `native c library`(`openssl libcrypto`) . you could access the package [here](https://www.nuget.org/packages/LinkerDesign.Crypto)
+
+* `java(jvm)` package
+  + we use `jni(java native interface)` technology to port and encapsulate the `native c library`(`openssl libcrypto`). you could access the package [here](https://mvnrepository.com/artifact/io.github.iyouw/crypto)
 
 ## Features
 
