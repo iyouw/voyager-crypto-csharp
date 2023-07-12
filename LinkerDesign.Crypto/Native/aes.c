@@ -26,9 +26,10 @@ void free_aes_key(unsigned char *key)
 void generate_aes_iv(WriteCallback callback)
 {
     const int size = 16;
-    unsigned char iv[size];
+    unsigned char *iv = (unsigned char *)malloc(size);
     RAND_bytes(iv, size);
     (*callback)(iv, size);
+    free(iv);
 }
 
 unsigned char *import_aes_iv()
