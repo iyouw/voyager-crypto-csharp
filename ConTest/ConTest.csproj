@@ -8,6 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="LinkerDesign.Crypto" Version="0.2.4" />
+    <PackageReference Include="LinkerDesign.Crypto" Version="0.3.0" />
   </ItemGroup>
 </Project>
