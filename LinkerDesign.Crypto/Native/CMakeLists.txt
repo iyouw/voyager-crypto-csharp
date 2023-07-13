@@ -1,23 +1,27 @@
+if(MSVC)
+  set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
+endif()
+
 add_library(kcrypto SHARED crypto_base.c aes_context.c md_context.c aes.c md.c)
 
 # include directories
-set(openssl_include_dir  "C:/Program Files/OpenSSL/include")
+set(OPENSSL_WIN "C:/Program Files/OpenSSL")
+set(OPENSSL_INCLUDE_DIR_WIN  "${OPENSSL_WIN}/include")
+set(OPENSSL_LIB_WIN "${OPENSSL_WIN}/lib/libcrypto.lib")
 
-set(include_paths ${CMAKE_CURRENT_SOURCE_DIR})
+set(INCLUDE_PATHS ${CMAKE_CURRENT_SOURCE_DIR})
+
 if(MSVC)
-  list(APPEND include_paths ${openssl_include_dir})
+  list(APPEND INCLUDE_PATHS ${OPENSSL_INCLUDE_DIR_WIN})
 endif()
 
-target_include_directories(kcrypto PUBLIC ${include_paths})
+target_include_directories(kcrypto PUBLIC ${INCLUDE_PATHS})
 
 # link librarys
-set(openssl_lib "C:/Program Files/OpenSSL/lib/libcrypto.lib")
-
-set(link_libs)
 if(MSVC)
-  list(APPEND link_libs ${openssl_lib})
+  list(APPEND LINK_LIBS ${OPENSSL_LIB_WIN})
 else()
-  list(APPEND link_libs "crypto" "m")
+  list(APPEND LINK_LIBS "crypto" "m")
 endif()
 
-target_link_libraries(kcrypto ${link_libs})
+target_link_libraries(kcrypto ${LINK_LIBS})

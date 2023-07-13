@@ -2,7 +2,7 @@
 
 #include <string.h>
 
-MdContext *md_context_create(
+MdContext* md_context_create(
   enum MD_ALGORITHM algorithm, 
   int buf_len)
 {

@@ -12,7 +12,7 @@ void generate_aes_key(int length, WriteCallback callback)
     free(key);
 }
 
-unsigned char *import_aes_key(int length) 
+unsigned char* import_aes_key(int length) 
 {
     return (unsigned char *)malloc(length);
 }
@@ -32,7 +32,7 @@ void generate_aes_iv(WriteCallback callback)
     free(iv);
 }
 
-unsigned char *import_aes_iv()
+unsigned char* import_aes_iv()
 {
     return (unsigned char *)malloc(16);
 }

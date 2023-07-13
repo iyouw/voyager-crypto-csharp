@@ -2,7 +2,7 @@
 
 #include <string.h>
 
-AesContext *aes_context_create(
+AesContext* aes_context_create(
   enum AES_MODE mode, 
   int key_size,
   int buf_len)

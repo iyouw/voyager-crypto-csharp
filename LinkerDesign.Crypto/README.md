@@ -1,15 +1,18 @@
 # LinkerDesign.Crypto
 
-A lightweight crypto library which could run on `browser`, `node`, `java(jvm)`, `dotnet` platform base on `openssl libcrypto library`.
+**A lightweight crypto library which could run on `browser`, `node`, `java(jvm)`, `dotnet` platform base on `openssl libcrypto library`**.
 
-* `browser`, `node` package
-	+ we use `webassembly` technology to port and encapsulate the `native c library`(`openssl libcrypto`). you could access the package [here](https://www.npmjs.com/package/@linker-design/crypto)
+1. `browser`, `node` package
 
-* `dotnet` package
-	+ we use `p/invoke` technology to port and encapsulate the `native c library`(`openssl libcrypto`) . you could access the package [here](https://www.nuget.org/packages/LinkerDesign.Crypto)
+we use `webassembly` technology to port and encapsulate the `native c library`(`openssl libcrypto`). you could access the [npm package here](https://www.npmjs.com/package/@linker-design/crypto)
 
-* `java(jvm)` package
-  + we use `jni(java native interface)` technology to port and encapsulate the `native c library`(`openssl libcrypto`). you could access the package [here](https://mvnrepository.com/artifact/io.github.iyouw/crypto)
+2. `dotnet` package
+
+we use `p/invoke` technology to port and encapsulate the `native c library`(`openssl libcrypto`) . you could access the [dotnet package here](https://www.nuget.org/packages/LinkerDesign.Crypto)
+
+3. `java(jvm)` package
+
+we use `jni(java native interface)` technology to port and encapsulate the `native c library`(`openssl libcrypto`). you could access the [maven central package here](https://mvnrepository.com/artifact/io.github.iyouw/crypto)
 
 ## Features
 

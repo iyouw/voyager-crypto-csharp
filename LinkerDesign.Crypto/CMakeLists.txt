@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(native LANGUAGES C CXX)
+project(native)
 
 add_subdirectory(Native)
 
