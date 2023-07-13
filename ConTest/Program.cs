@@ -14,7 +14,7 @@ var dec = aes.Decrypt(key, iv, enc, EncodingType.Base64, EncodingType.Base64);
 
 var decMsg = Encoding.UTF8.GetString(dec);
 
-Console.WriteLine($"{dec}:::equals:{msg == decMsg}");
+Console.WriteLine($"{decMsg}:::equals:{msg == decMsg}");
 
 
 var sha1 = new Sha1();
