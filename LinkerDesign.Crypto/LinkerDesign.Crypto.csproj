@@ -22,6 +22,11 @@
       <PackageFlatten>true</PackageFlatten>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="lib/libcrypto.so.3" TargetPath="libcrypto.so.3">
+      <PackageCopyToOutput>true</PackageCopyToOutput>
+      <PackageFlatten>true</PackageFlatten>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="lib/kcrypto.dll" TargetPath="kcrypto.dll">
       <PackageCopyToOutput>true</PackageCopyToOutput>
       <PackageFlatten>true</PackageFlatten>
